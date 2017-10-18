@@ -13,4 +13,5 @@ GET     /message                    controllers.AsyncController.message
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 # Map to our chess application
-GET     /chess                      controllers.Application.startChess
+GET     /chess                      controllers.Application.startChess(command:String = "h")
+GET		/chess/:command			    controllers.Application.startChess(command:String)

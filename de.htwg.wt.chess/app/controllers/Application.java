@@ -1,17 +1,24 @@
 package controllers;
 
 import de.htwg.chess.Chess;
+import de.htwg.chess.aview.gui.ChessFrame;
+import de.htwg.chess.aview.tui.TextUI;
 import de.htwg.chess.controller.IChessController;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.chess;
 
-public class Application extends Controller{
+public class Application extends Controller {
 
-    static IChessController controller = Chess.getInstance().getController();
+    Chess instance = Chess.getInstance();
+    IChessController controller = instance.getController();
+    TextUI tui = instance.getTui();
+    ChessFrame gui = instance.getGui();
 
-    public Result startChess() {
-        return ok(chess.render(controller.printTotalBoard()));
+    public Result startChess(String command) {
+        return ok(command + "\n" +
+                tui.processInputLine(command) + "\n" +
+                controller.printTotalBoard());
     }
 
 }
