@@ -25,6 +25,23 @@ p {
     margin-top: 0;
     text-align: justify;
 }
+.requirements p:last-child {
+    width: auto;
+    padding: 1em 12%;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.4);
+    background: #3e5d67;
+
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url(http://csszengarden.com/001/blossoms.jpg);
+    background-position: 0 0, -5px -25px, 0 0, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+
+    font-size: 2em;
+    font-style: italic;
+    text-align: center;
+}
 h3 {
     font: italic normal 1.4em georgia, sans-serif;
     letter-spacing: 1px;
