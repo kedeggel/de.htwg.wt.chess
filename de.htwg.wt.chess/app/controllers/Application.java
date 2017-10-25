@@ -6,7 +6,7 @@ import de.htwg.chess.aview.tui.TextUI;
 import de.htwg.chess.controller.IChessController;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.chess;
+import views.html.index;
 
 public class Application extends Controller {
 
@@ -16,9 +16,10 @@ public class Application extends Controller {
     ChessFrame gui = instance.getGui();
 
     public Result startChess(String command) {
-        return ok(command + "\n" +
+        return ok(index.render(
+                command + "\n" +
                 tui.processInputLine(command) + "\n" +
-                controller.printTotalBoard());
+                controller.printTotalBoard()));
     }
 
 }
