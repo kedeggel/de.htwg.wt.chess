@@ -51,7 +51,7 @@ p {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
-.square-55d63 {
+.square {
     float: left;
     position: relative;
 
@@ -62,4 +62,12 @@ p {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+.white {
+    background-color: #efe7e2;
+    color: #474747;
+}
+.black {
+    background-color: #474747;
+    color: #efe7e2;
 }
