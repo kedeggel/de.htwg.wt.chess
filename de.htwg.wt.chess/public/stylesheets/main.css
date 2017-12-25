@@ -1,10 +1,3 @@
-/*
-This is our CSS-file which expands the initial bootstrap-template.
-For additional information about css-properties see this documentaion:
-https://www.w3schools.com/cssref/
-*/
-
-/* elements */
 html {
     margin: 0;
     padding: 0;
@@ -29,11 +22,9 @@ footer {
     padding-bottom: 1%;
     font-style: oblique;
 }
-p {
-    text-align: justify;
+.content {
+    background-color: #e7f99d;
 }
-
-/* classes */
 .navbar {
     background-color: #c57d25;
     padding-left: 1.5%;
@@ -43,32 +34,98 @@ p {
 .nav-item{
     padding-right: 20px;
 }
-.content {
-    background-color: #e7f99d;
-    padding-left: 1%;
+.chessboard {
+    border: 2px solid #404040;
+    alignment: center;
+    margin: 5% 5% 5% 5%;
+    width: 600px;
+    height: 600px;
+    font-size: 0;
 }
-.board {
-    border: 2px solid #373737;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+.fieldbutton {
+    border: none;
+    padding: 6.25%;
+    margin: 0;
+    background-size: 95%;
 }
-.square {
-    float: left;
-    position: relative;
-
-    /* disable any native browser highlighting */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.fieldbutton:hover {
+    box-shadow:inset 0px 0px 0px 3px #6c0b00;
+}
+.fieldbutton:active {
+    box-shadow:inset 0px 0px 0px 3px #ba0d00;
 }
 .white {
-    background-color: #efe7e2;
-    color: #474747;
+    background-color: #fcc797;
 }
 .black {
-    background-color: #474747;
-    color: #efe7e2;
+    background-color: #bb8649;
+}
+
+/* TODO: Find a way to use string interpolation to replace all the following css-classes with something like this:
+.fieldbutton[piece=<value>] {
+    background-image: url("../images/<value>.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+* Also we cannot optimize (one-liner) background declaration here, since it would overwrite the cells background color.
+*/
+.fieldbutton[piece=KingBLACK] {
+    background-image: url("../images/KingBLACK.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=KingWHITE] {
+    background-image: url("../images/KingWHITE.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=QueenBLACK] {
+    background-image: url("../images/QueenBLACK.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=QueenWHITE] {
+    background-image: url("../images/QueenWHITE.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=BishopBLACK] {
+    background-image: url("../images/BishopBLACK.png");
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+.fieldbutton[piece=BishopWHITE] {
+    background-image: url("../images/BishopWHITE.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=KnightBLACK] {
+    background-image: url("../images/KnightBLACK.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=KnightWHITE] {
+    background-image: url("../images/KnightWHITE.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=RookBLACK] {
+    background-image: url("../images/RookBLACK.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=RookWHITE] {
+    background-image: url("../images/RookWHITE.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=PawnBLACK] {
+    background-image: url("../images/PawnBLACK.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldbutton[piece=PawnWHITE] {
+    background-image: url("../images/PawnWHITE.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
