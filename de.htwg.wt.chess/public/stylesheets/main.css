@@ -71,6 +71,9 @@ footer {
 .black {
     background-color: #bb8649;
 }
+.clickedFirst {
+    box-shadow:inset 0px 0px 0px 5px #6c0b00;
+}
 
 /* (NOT SURE IF EVEN POSSIBLE) Find a way to use string interpolation to replace all the following css-classes with something like this:
 .fieldbutton[piece=<value>] {

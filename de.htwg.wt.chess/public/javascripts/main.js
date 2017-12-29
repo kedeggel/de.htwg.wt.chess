@@ -46,8 +46,10 @@ function registerFieldbuttonListener() {
         if (firstClick == "") {
             firstClick = id;
             console.log("firstClick set to: " + firstClick);
+            $("#" + firstClick).addClass("clickedFirst");
         } else {
             sendCommandAjax("/" + firstClick + "-" + id);
+            $("#" + firstClick).removeClass("clickedFirst");
             firstClick = "";
         }
     });
