@@ -5,37 +5,39 @@ $(document).ready(function(){
 
     //websockets not used yet
     //connectWebSocket();
-    updateBoard();
+    updateBoardAjax();
     registerFieldbuttonListener();
 });
 
-function updateBoard() {
-    var board = "A1: Rook WHITE B1: Knight WHITE C1: Bishop WHITE D1: Queen WHITE E1: King WHITE F1: Bishop WHITE G1: Knight WHITE H1: Rook WHITE A2: Pawn WHITE B2: Pawn WHITE C2: Pawn WHITE D2: Pawn WHITE E2: Pawn WHITE F2: Pawn WHITE G2: Pawn WHITE H2: Pawn WHITE A7: Pawn BLACK B7: Pawn BLACK C7: Pawn BLACK D7: Pawn BLACK E7: Pawn BLACK F7: Pawn BLACK G7: Pawn BLACK H7: Pawn BLACK A8: Rook BLACK B8: Knight BLACK C8: Bishop BLACK D8: Queen BLACK E8: King BLACK F8: Bishop BLACK G8: Knight BLACK H8: Rook BLACK";
-    // Ajax-call not working yet
-    //var board = getBoardAjax();
+function updateBoardAjax() {
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "/printBoard",
+        dataType: 'text',
+        complete: function(data){
+            console.log("getBoardAjax() was successful");
+            setPiecesToBoard(data.responseText);
+        },
+        error: function(xhr){
+            console.log("ERROR in getBoardAjax(): " + xhr.status + " " + xhr.statusText);
+        }
+    });
+}
 
+function setPiecesToBoard(board) {
+    // clear all piece-info on buttons
     $("button.fieldbutton").attr("piece", "");
+    // replace line breaks with spaces
+    board = board.split("\n").join(" ");
+    // split string to process value by value
     var list = board.split(" ");
+    //remove last trailing space
+    list.pop();
     for (var i = 0; i < list.length; i++) {
         list[i] = list[i].substring(0, list[i].length - 1);
         $("#" + list[i]).attr("piece", list[++i] + list[++i]);
     }
-}
-
-function getBoardAjax() {
-    var board = "";
-    $.ajax({
-        type: "GET",
-        url: "/printBoard",
-        done: function(data){
-            alert("ajax returned board: " + data);
-            board = data;
-        },
-        error: function(xhr){
-            alert("Error in getBoardAjax(): " + xhr.status + " " + xhr.statusText);
-        }
-    });
-    return board;
 }
 
 function registerFieldbuttonListener() {
@@ -43,11 +45,10 @@ function registerFieldbuttonListener() {
         var id = this.getAttribute("id");
         if (firstClick == "") {
             firstClick = id;
-            alert("firstClick has been set to: " + firstClick);
+            console.log("firstClick set to: " + firstClick);
         } else {
-            sendCommandAjax(firstClick + "-" + id);
+            sendCommandAjax("/" + firstClick + "-" + id);
             firstClick = "";
-            updateBoard();
         }
     });
 }
@@ -55,12 +56,14 @@ function registerFieldbuttonListener() {
 function sendCommandAjax(command) {
     $.ajax({
         type: "GET",
-        url: "/" + command,
-        done: [function(data){
-            alert("ajax command invoked, " + data);
-        }],
+        cache: false,
+        url: command,
+        complete: function(data){
+            console.log("sendCommandAjax() was successful: " + command);
+            updateBoardAjax();
+        },
         error: function(xhr){
-            alert("Error in sendCommandAjax(): " + xhr.status + " " + xhr.statusText);
+            alert("ERROR in sendCommandAjax(): " + xhr.status + " " + xhr.statusText);
     }
     });
 }
