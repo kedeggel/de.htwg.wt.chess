@@ -3,10 +3,9 @@ var firstClick = "";
 $(document).ready(function(){
     console.log("Document ready!");
 
-    //websockets not used yet
-    //connectWebSocket();
     updateBoardAjax();
     registerFieldbuttonListener();
+    connectWebSocket();
 });
 
 function updateBoardAjax() {
@@ -73,7 +72,6 @@ function sendCommandAjax(command) {
 
 function connectWebSocket() {
     var websocket = new WebSocket("ws://localhost:9000/websocket");
-    websocket.setTimeout
 
     websocket.onopen = function(event) {
         console.log("Connected to Websocket");
@@ -90,10 +88,9 @@ function connectWebSocket() {
         console.log('Error in Websocket Occured: ' + error);
     };
 
+    // websocket updates the client with the newest status messages. (controller.getStatusMessage())
     websocket.onmessage = function (e) {
         console.log("Connection sent a Message: " + e.data)
-        if (typeof e.data === "string") {
-            updateBoard(e.data);
-        }
+        $(".historyPanel").append($("<p></p>").text(e.data));
     };
 }

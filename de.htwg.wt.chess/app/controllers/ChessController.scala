@@ -24,7 +24,7 @@ class ChessController @Inject()(cc: ControllerComponents) (implicit system: Acto
     tui.processInputLine(command)
     Ok(views.html.chess(controller))
   }
-  def printBoard() = Action {
+  def printBoard = Action {
     Ok(controller.printBoard())
   }
 
@@ -41,10 +41,10 @@ class ChessController @Inject()(cc: ControllerComponents) (implicit system: Acto
     }
   }
   class ChessWebSocketActor(out: ActorRef) extends Actor {
-    def receive = {
+    override def receive: Receive = {
       case msg: String =>
-        out ! controller.printBoard()
-        println("Sent Message: " + msg.getClass)
+        out ! controller.getStatusMessage()
+        println("Sent Status Message to Client")
     }
   }
 
