@@ -1,3 +1,4 @@
+var websocket = new WebSocket("ws://localhost:9000/websocket");
 var firstClick = "";
 
 $(document).ready(function(){
@@ -17,6 +18,10 @@ function updateBoardAjax() {
         complete: function(data){
             console.log("getBoardAjax() was successful");
             setPiecesToBoard(data.responseText);
+            //update history via websocket
+            websocket.send(JSON.stringify({
+                update: "do it"
+            }));
         },
         error: function(xhr){
             console.log("ERROR in getBoardAjax(): " + xhr.status + " " + xhr.statusText);
@@ -71,8 +76,6 @@ function sendCommandAjax(command) {
 
 
 function connectWebSocket() {
-    var websocket = new WebSocket("ws://localhost:9000/websocket");
-
     websocket.onopen = function(event) {
         console.log("Connected to Websocket");
         websocket.send(JSON.stringify({
