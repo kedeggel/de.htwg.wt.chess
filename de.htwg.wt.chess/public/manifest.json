@@ -1,0 +1,7 @@
+{
+  "name": "htwg-chess",
+  "short_name": "htwg-chess",
+  "description": "Chess App for HTWG lecture Webtech",
+  "start_url": "/",
+  "display": "standalone"
+}

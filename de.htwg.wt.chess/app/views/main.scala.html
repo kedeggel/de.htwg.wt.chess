@@ -12,16 +12,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <script src="@routes.Assets.versioned("bower_components/webcomponentsjs/webcomponents-loader.js")"></script>
+
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <!-- See https://goo.gl/OOhYW5 -->
+        <link rel="manifest" href="@routes.Assets.versioned("manifest.json")">
+        <link rel="import" href="@routes.Assets.versioned("polymer-elements/htwg-chess.scala.html")">
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" type="text/javascript" defer></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" type="text/javascript" defer></script>
-        <script src="@routes.Assets.versioned("javascripts/vue.js")" type="text/javascript" defer></script>
-        <script src="@routes.Assets.versioned("javascripts/chessVue.js")" type="text/javascript" defer></script>
+        <!-- <script src="@routes.Assets.versioned("javascripts/vue.js")" type="text/javascript" defer></script>
+        <script src="@routes.Assets.versioned("javascripts/chessVue.js")" type="text/javascript" defer></script> -->
         <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript" defer></script>
 
     </head>
