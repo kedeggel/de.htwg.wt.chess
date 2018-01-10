@@ -50,8 +50,8 @@ class ChessController @Inject()(cc: ControllerComponents) (implicit system: Acto
     override def receive: Receive = {
       case msg: String =>
         Try(controller.getStatusMessage()) match {
-          case Success(status) =>
-            out ! status
+          case Success(msg) =>
+            out ! msg
           case Failure(_) =>
             out ! ""
         }

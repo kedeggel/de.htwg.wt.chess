@@ -1,4 +1,16 @@
-Vue.component('chessboard', {
+Vue.component('vue-history', {
+    template: `
+        <div class="historyPanel">
+            <h3>History</h3>
+        </div>
+    `
+});
+
+new Vue({
+    el: '#vueHistoryPanel',
+});
+
+Vue.component('vue-chessboard', {
     template: `
         <div class="chessboard">
             <div id="row8">
@@ -83,9 +95,9 @@ Vue.component('chessboard', {
             </div>
         </div>
     `
-})
+});
 
 new Vue({
     el: '#vueChessboard',
-})
+});
 
