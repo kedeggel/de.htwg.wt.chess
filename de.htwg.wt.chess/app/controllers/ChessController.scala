@@ -8,6 +8,8 @@ import de.htwg.chess.Chess
 import play.api.mvc._
 import play.api.libs.streams.ActorFlow
 
+import scala.util.{Failure, Success, Try}
+
 @Singleton
 class ChessController @Inject()(cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
   val controller = Chess.getInstance.getController
@@ -43,7 +45,12 @@ class ChessController @Inject()(cc: ControllerComponents) (implicit system: Acto
   class ChessWebSocketActor(out: ActorRef) extends Actor {
     override def receive: Receive = {
       case msg: String =>
-        out ! controller.getStatusMessage()
+        Try(controller.getStatusMessage()) match {
+          case Success(status) =>
+            out ! status
+          case Failure(_) =>
+            out ! ""
+        }
         println("Sent Status Message to Client")
     }
   }
