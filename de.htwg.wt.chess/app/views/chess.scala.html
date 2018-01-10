@@ -1,28 +1,7 @@
 @(controller: de.htwg.chess.controller.IChessController)
 
-@main {
+@main("HTWG Chess") {
     <div>
-            <!-- HEADER -->
-        <header role="banner">
-            <h1>HTWG Chess</h1>
-            <h2>by Kevin & Sascha</h2>
-        </header>
-
-            <!-- MENUBAR -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="new">New Game</a></li>
-                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://www.chess.com/learn-how-to-play-chess">
-                        Chess rules</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                </ul>
-            </div>
-        </nav>
             <!-- CONTENT -->
         <div class="container-fluid">
             <div class="row">
@@ -40,11 +19,5 @@
                 </div>
             </div>
         </div>
-
-            <!-- FOOTER -->
-        <footer role="banner">
-            <h3>Project developed for the WebTech-Course at HTWG Konstanz.</h3>
-        </footer>
-
     </div>
 }

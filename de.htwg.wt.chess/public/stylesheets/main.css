@@ -20,20 +20,31 @@ footer {
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 1%;
-    font-style: oblique;
 }
 .content {
     background-color: #e7f99d;
 }
 .navbar {
-    background-color: #c57d25;
+    background-color: #bb8649;
     padding-left: 1.5%;
     font-size: larger;
-    font-style: oblique;
+    font-weight: bold;
 }
+
 .nav-item{
     padding-right: 20px;
 }
+
+.nav-link {
+    color: white;
+}
+
+.about {
+    font: 150% georgia, sans-serif;
+    line-height: 1.8;
+    color: #555753;
+}
+
 .historyPanel {
     border: 6px double #404040;
     alignment: center;

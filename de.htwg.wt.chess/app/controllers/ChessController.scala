@@ -30,6 +30,10 @@ class ChessController @Inject()(cc: ControllerComponents) (implicit system: Acto
     Ok(controller.printBoard())
   }
 
+  def about = Action {
+    println("ABOUT")
+    Ok(views.html.about())
+  }
 
   def socket = WebSocket.accept[String, String] { request =>
     ActorFlow.actorRef { out =>

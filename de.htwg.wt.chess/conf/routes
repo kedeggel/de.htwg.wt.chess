@@ -6,6 +6,7 @@
 GET     /                           controllers.ChessController.chess
 GET		/new    			        controllers.ChessController.newChess
 GET     /printBoard                 controllers.ChessController.printBoard
+GET     /about                      controllers.ChessController.about
 GET     /websocket                  controllers.ChessController.socket
 GET     /:command                   controllers.ChessController.command(command:String)
 
