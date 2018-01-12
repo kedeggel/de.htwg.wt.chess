@@ -2,16 +2,16 @@ package controllers
 
 import javax.inject._
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import akka.actor.{ Actor, ActorRef, ActorSystem, Props }
 import akka.stream.Materializer
 import de.htwg.chess.Chess
 import play.api.mvc._
 import play.api.libs.streams.ActorFlow
 
-import scala.util.{Failure, Success, Try}
+import scala.util.{ Failure, Success, Try }
 
 @Singleton
-class ChessController @Inject()(cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
+class ChessController @Inject() (cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
   val controller = Chess.getInstance.getController
   val tui = Chess.getInstance().getTui
 
