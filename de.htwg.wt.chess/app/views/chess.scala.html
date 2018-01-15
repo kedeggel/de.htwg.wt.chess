@@ -1,20 +1,26 @@
-@(controller: de.htwg.chess.controller.IChessController)
+@import play.api.i18n.Messages
+@import play.api.mvc.RequestHeader
+@import org.webjars.play.WebJarsUtil
+@import controllers.AssetsFinder
 
-@index("HTWG Chess") {
-    <div>
-            <!-- CONTENT -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="vueChessboard">
-                        <vue-chessboard></vue-chessboard>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div id="vueHistoryPanel">
-                        <vue-history></vue-history>
-                    </div>
-                </div>
+@(controller: de.htwg.chess.controller.IChessController, user: models.User)(implicit request: RequestHeader, messages: Messages, webJarsUtil: WebJarsUtil, assets: AssetsFinder)
+
+@main(messages("htwg.chess"), Some(user)) {
+    <!-- CONTENT -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div id="vueChessboard">
+                <vue-chessboard></vue-chessboard>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div id="vueHistoryPanel">
+                <vue-history></vue-history>
+                <!-- TODO: Pretty bootstrap history Panel not working???
+                    <div class="panel panel-primary">
+                    <div class="panel-heading">History</div>
+                    <div class="panel-body">Panel Content</div>
+                </div>-->
             </div>
         </div>
     </div>

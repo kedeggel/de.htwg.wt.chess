@@ -27,24 +27,25 @@ footer {
 .navbar {
     background-color: #bb8649;
     padding-left: 1.5%;
-    font-size: larger;
-    font-weight: bold;
+    font-size: x-large;
 }
-
+.navbar-brand {
+    font-size: x-large;
+    font-weight: bold;
+    padding-right: 10px;
+}
 .nav-item{
     padding-right: 20px;
 }
-
-.nav-link {
-    color: white;
-}
-
 .about {
     font: 150% georgia, sans-serif;
     line-height: 1.8;
     color: #555753;
+    margin-top: 2%;
 }
-
+.container {
+    margin-left: 5%;
+}
 .historyPanel {
     border: 6px double #404040;
     alignment: center;
@@ -52,16 +53,16 @@ footer {
     padding: 2% 2% 2% 2%;
     width: 80%;
     height: 80%;
-    font-size: 18px;
+    font-size: 16px;
 }
 .historyPanel p:nth-last-of-type(1) {
     font-weight: bold;
 }
 .chessboard {
     border: 2px solid #404040;
+    margin: 3% 3% 3% 3%;
     alignment: center;
-    margin: 5% 5% 5% 5%;
-    width: 60%;
+    width: 95%;
     font-size: 0;
 }
 .fieldbutton {
@@ -85,15 +86,6 @@ footer {
 .clickedFirst {
     box-shadow:inset 0px 0px 0px 5px #6c0b00;
 }
-
-/* (NOT SURE IF EVEN POSSIBLE) Find a way to use string interpolation to replace all the following css-classes with something like this:
-.fieldbutton[piece=<value>] {
-    background-image: url("../images/<value>.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-* Also we cannot optimize (one-liner) background declaration here, since it would overwrite the cells background color.
-*/
 .fieldbutton[piece=KingBLACK] {
     background-image: url("../images/KingBLACK.png");
     background-repeat: no-repeat;

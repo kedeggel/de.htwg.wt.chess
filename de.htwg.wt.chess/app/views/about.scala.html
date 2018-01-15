@@ -1,4 +1,11 @@
-@index("About") {
+@import play.api.i18n.Messages
+@import play.api.mvc.RequestHeader
+@import org.webjars.play.WebJarsUtil
+@import controllers.AssetsFinder
+
+@(user: models.User)(implicit request: RequestHeader, messages: Messages, webJarsUtil: WebJarsUtil, assets: AssetsFinder)
+
+@main("About", Some(user)) {
     <div class="about">
         <p>Developed by Sascha Nunes and Kevin Deggelmann<br>
             for Web Technologies Lecture at the University of Applied Sciences Konstanz</p>

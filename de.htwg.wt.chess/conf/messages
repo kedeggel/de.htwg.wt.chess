@@ -1,3 +1,5 @@
+htwg.chess = HTWG Chess
+
 error.email = Valid email required
 error.required = This field is required
 invalid.credentials = Invalid credentials!
