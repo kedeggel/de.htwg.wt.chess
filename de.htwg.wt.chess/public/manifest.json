@@ -1,0 +1,7 @@
+{
+  "name": "chess",
+  "short_name": "chess",
+  "description": "Chess for HTWG lecture Webtechnologies",
+  "start_url": "/",
+  "display": "standalone"
+}

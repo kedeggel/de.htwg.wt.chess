@@ -1,19 +1,15 @@
 @(controller: de.htwg.chess.controller.IChessController)
 
 @main("HTWG Chess") {
-    <div>
             <!-- CONTENT -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="vueChessboard">
-                        <vue-chessboard></vue-chessboard>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div id="vueHistoryPanel">
-                        <vue-history></vue-history>
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <htwg-chess></htwg-chess>
+            </div>
+            <div class="col-lg-6">
+                <div class="historyPanel">
+                    <h3>History</h3>
                 </div>
             </div>
         </div>
