@@ -1,4 +1,4 @@
-var websocket = new WebSocket("wss://localhost:9000/websocket");
+var websocket = new WebSocket("wss://https://htwg17-chess.herokuapp.com/websocket");
 var firstClick = "";
 
 $(document).ready(function(){
