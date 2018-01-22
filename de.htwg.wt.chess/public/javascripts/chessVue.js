@@ -1,7 +1,9 @@
 Vue.component('vue-history', {
     template: `
-        <div class="historyPanel">
-            <h3>History</h3>
+        <div id="historyCard" class="card">
+          <h3 class="card-header">History</h3>
+          <div id="historyCardBlock" class="card-block">
+          </div>
         </div>
     `
 });
