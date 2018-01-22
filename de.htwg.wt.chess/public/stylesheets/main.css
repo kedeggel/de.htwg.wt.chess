@@ -27,10 +27,10 @@ footer {
 .navbar {
     background-color: #bb8649;
     padding-left: 1.5%;
-    font-size: x-large;
+    font-size: larger;
 }
 .navbar-brand {
-    font-size: x-large;
+    font-size: larger;
     font-weight: bold;
     padding-right: 10px;
 }
