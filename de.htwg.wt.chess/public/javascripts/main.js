@@ -94,6 +94,6 @@ function connectWebSocket() {
     // websocket updates the client with the newest status messages. (controller.getStatusMessage())
     websocket.onmessage = function (e) {
         console.log("Connection sent a Message: " + e.data)
-        $(".historyPanel").append($("<p></p>").text(e.data));
+        $("#historyCardBlock").append($("<p class=\"card-text\"></p>").text(e.data));
     };
 }
